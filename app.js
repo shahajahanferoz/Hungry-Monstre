@@ -22,6 +22,9 @@ const searchFood= async (word)=>{
 const showMenu = data => {
     console.log(data)
    const foodsListDiv = document.getElementById('foods-list');
+   foodsListDiv.innerHTML="";
+   document.getElementById('food-details').innerHTML="";
+
    data.forEach(food => {
       const foodListDiv = document.createElement("div")
       foodListDiv.className = 'food-list'
