@@ -15,3 +15,7 @@
 #food-details{
     text-align: center;
 }
+#error-show{
+    color: darkred;
+    text-align: center;
+}

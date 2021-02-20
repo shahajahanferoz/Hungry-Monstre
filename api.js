@@ -3,11 +3,17 @@ const searchButton = document.getElementById('search-button')
 searchButton.addEventListener('click',()=>searchFood(searchBox.value))
 
 const searchFood= async (word)=>{
-    const res = await fetch (`https://www.themealdb.com/api/json/v1/1/search.php?s=${word}`)
-    const data = await res.json()
-    showMenu(data.meals)
+    
+  
+    try{
+        const res = await fetch (`https://www.themealdb.com/api/json/v1/1/search.php?s=${word}`)
+        const data = await res.json()
+        showMenu(data.meals)
+    }
+    catch(error){displayError('Sorry, sir this menu is not available now')
+     }
 
-    console.log(data)
+    //console.log(data)
     searchBox.value = ""
 }
 
@@ -52,6 +58,10 @@ const renderFoodInfo = data =>{
        `
        
        details.innerHTML = detailsInfo;
+}
+const displayError=error=>{
+    const errorTag = document.getElementById('error-show')
+    errorTag.innerText=error;
 }
 
 
