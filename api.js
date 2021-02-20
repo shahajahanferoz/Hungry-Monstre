@@ -3,7 +3,7 @@ const searchButton = document.getElementById('search-button')
 searchButton.addEventListener('click',()=>searchFood(searchBox.value))
 
 const searchFood= async (word)=>{
-    const res = await fetch (`https://www.themealdb.com/api/json/v1/1/search.php?f=${word}`)
+    const res = await fetch (`https://www.themealdb.com/api/json/v1/1/search.php?s=${word}`)
     const data = await res.json()
     showMenu(data.meals)
 
